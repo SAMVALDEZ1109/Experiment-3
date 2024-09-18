@@ -21,16 +21,17 @@ To be able to apply and use the different codes and functions in creating a Pyth
 
 > The last five rows of the dataset should also be displayed, revealing the final entries in the dataset.
 
-#start of code
+## start of code
 
 import pandas as pd
 
 #Loading the CSV file into a dataframe named cars
 
 url = "http://bit.ly/Cars_file"
-cars = pd.read_csv(url)
 
-#Displaying the first five and last five rows of the dataframe
+cars = pd.read_csv('cars.csv')
+
+### Displaying the first five and last five rows of the dataframe
 
 print("First 5 rows: ")
 print(cars.head())
@@ -60,36 +61,38 @@ print(cars.tail())
 
 > It should also display the number of cylinders ('cyl') and gear type ('gear') for the car models 'Mazda RX4 Wag', 'Ford Pantera L', and 'Honda Civic'.
 
-#start of code
+## start of code
 
-###Part A
+import pandas as pd
 
-#Display the first five rows with Odd-Numbered columns of cars
+### Display the first five rows with odd-numbered columns
 
 #Use iloc function to find and print out specific rows/columns and utilize the slicing function
 
-print(cars.iloc[:5, ::2])
+print("First five rows with odd-numbered columns:")
+(cars.iloc[:5, ::2])
 
-###Part B
 
-#Display the row which contains the Model of Mazda RX4
+### Display the row that contains the ‘Model’ of ‘Mazda RX4’
 
 #Use loc function to specific and pick the row that contains 'Mazda RX4' in the 'Model' column
 
+print("\nRow with 'Mazda RX4' model:")
 mazda = cars.loc[cars['Model'] == 'Mazda RX4']
 mazda
 
-###Part C
 
-#How many cylinders (‘cyl’) does the car model ‘Camaro Z28’ have?
+### How many cylinders (‘cyl’) does the car model ‘Camaro Z28’ have?
 
 #Use loc function to find the value at that specific row index and column name
+
+print("\nCylinders in 'Camaro Z28':")
 cars.loc[23,'cyl']
 
-###Part D
 
-#Determine how many cylinders (‘cyl’) and what gear type (‘gear’) do the car models ‘Mazda RX4 Wag’, ‘Ford Pantera L’ and ‘Honda Civic’ have.
+### Determine how many cylinders (‘cyl’) and what gear type (‘gear’) do the car models ‘Mazda RX4 Wag’, ‘Ford Pantera L’ and ‘Honda Civic’ have.
 
 #Use loc function to determine specific value 
 
+print("\nCylinders and gear type for specific models:")
 cars.loc[[1, 28, 18], ['Model', 'cyl', 'gear']]
